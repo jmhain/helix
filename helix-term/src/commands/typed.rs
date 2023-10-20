@@ -2408,6 +2408,15 @@ fn redraw(
     Ok(())
 }
 
+fn ring_bell(
+    _cx: &mut compositor::Context,
+    _args: &[Cow<str>],
+    _event: PromptEvent,
+) -> anyhow::Result<()> {
+    helix_view::bell::ring_bell();
+    Ok(())
+}
+
 pub const TYPABLE_COMMAND_LIST: &[TypableCommand] = &[
     TypableCommand {
         name: "quit",
@@ -3006,6 +3015,13 @@ pub const TYPABLE_COMMAND_LIST: &[TypableCommand] = &[
         aliases: &[],
         doc: "Clear and re-render the whole UI",
         fun: redraw,
+        signature: CommandSignature::none(),
+    },
+    TypableCommand {
+        name: "ring-bell",
+        aliases: &[],
+        doc: "Make some noise",
+        fun: ring_bell,
         signature: CommandSignature::none(),
     },
 ];

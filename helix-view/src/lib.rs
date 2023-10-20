@@ -1,6 +1,7 @@
 #[macro_use]
 pub mod macros;
 
+pub mod bell;
 pub mod clipboard;
 pub mod document;
 pub mod editor;
