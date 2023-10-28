@@ -597,12 +597,12 @@ impl Component for Prompt {
                     return close_fn;
                 }
             }
-            alt!('k') => {
+            alt!('k') | key!(Up) => {
                 if let Some(register) = self.history_register {
                     self.change_history(cx, register, CompletionDirection::Backward);
                 }
             }
-            alt!('j') => {
+            alt!('j') | key!(Down) => {
                 if let Some(register) = self.history_register {
                     self.change_history(cx, register, CompletionDirection::Forward);
                 }

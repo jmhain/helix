@@ -852,10 +852,10 @@ impl<T: Item + 'static + Send + Sync> Component for Picker<T> {
         ctx.editor.reset_idle_timer();
 
         match key_event {
-            shift!(Tab) | alt!('k') => {
+            shift!(Tab) | key!(Up) | alt!('k') => {
                 self.move_by(1, Direction::Backward);
             }
-            key!(Tab) | alt!('j') => {
+            key!(Tab) | key!(Down) | alt!('j') => {
                 self.move_by(1, Direction::Forward);
             }
             key!(PageDown) | ctrl!('d') => {
